@@ -10,9 +10,9 @@
         "branch":     "master"
     },
     {
-        "repository":  "LiquidSmooth/android_kernel_shooter",
+        "repository":  "voidz777/android_kernel_htc_shooter",
         "target_path": "kernel/htc/shooter",
-        "branch": "kitkat"
+        "branch": "master"
     },
     {
         "repository":  "CyanogenMod/android_external_f2fs-tools",
