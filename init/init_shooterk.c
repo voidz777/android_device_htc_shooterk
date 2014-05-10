@@ -184,7 +184,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("gsm.sim.operator.iso-country", "jp");
         property_set("ro.cdma.home.operator.alpha", "KDDI");
         property_set("ro.cdma.home.operator.numeric", "44054");
-    }else if (ISMATCH(bootloader, ("1.63.2121"))) {
+    }else if (ISMATCH(bootloader, ("1.63.2211"))) {
         /* shooterk */
         property_set("ro.build.fingerprint", "KDDI/HTI12/shooterk:4.0.3/IML74K/447280.7:user/release-keys");
         property_set("ro.build.description", "2.29.970.7 CL447280 release-keys");
