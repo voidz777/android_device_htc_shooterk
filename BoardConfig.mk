@@ -53,8 +53,8 @@ BOARD_KERNEL_PAGE_SIZE := 2048
 
 # Kernel
 TARGET_KERNEL_SOURCE   := kernel/htc/shooter
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.7
-TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.7
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.8
+TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.8
 
 #ION
 TARGET_USES_ION := true
