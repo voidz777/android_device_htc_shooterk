@@ -160,7 +160,7 @@
     <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+      <bool name="config_intrusiveBatteryLed">true</bool>
 
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
@@ -205,7 +205,7 @@
     </integer-array>
 
     <!-- Enable variable brightness for capacitive buttons -->
-    <!--<bool name="config_deviceHasVariableButtonBrightness">true</bool> -->
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
 
     <!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true-->
@@ -229,5 +229,8 @@
 
     <!-- Disable lockscreen translucent decor by default -->
     <bool name="config_enableLockScreenTranslucentDecor">true</bool>
+
+    <!-- Indicate whether the SD card is accessible without removing the battery. -->
+    <bool name="config_batterySdCardAccessibility">true</bool>
 
 </resources>

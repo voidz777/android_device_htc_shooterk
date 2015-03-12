@@ -21,11 +21,7 @@ ifneq ($(TARGET_SIMULATOR),true)
 # hw/<SENSORS_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
 
-ifeq ($(TARGET_DEVICE),shooteru)
-LOCAL_MODULE := sensors.shooteru
-else
 LOCAL_MODULE := sensors.shooterk
-endif
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 

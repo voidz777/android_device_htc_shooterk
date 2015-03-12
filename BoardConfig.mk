@@ -46,15 +46,15 @@ BOARD_USE_NEW_LIBRIL_HTC := true
 #BOARD_HAVE_SQN_WIMAX := true
 
 # Kernel Details
-TARGET_KERNEL_CONFIG := shooter_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooterk no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
 
 # Kernel
-TARGET_KERNEL_SOURCE   := kernel/htc/shooter
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := sm-arm-eabi-4.8
-TARGET_GCC_VERSION_ARM := sm-arm-eabi-4.8
+TARGET_KERNEL_CONFIG := shooterk_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/shooterk
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8-sm
+TARGET_GCC_VERSION_ARM := arm-eabi-4.8-sm
 
 #ION
 TARGET_USES_ION := true
@@ -66,68 +66,65 @@ BOARD_HTC_3D_SUPPORT := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 
+# External apps on SD
+TARGET_EXTERNAL_APPS = sdcard0
+
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/shooterk
 
 # Vendor Init
-TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/htc/shooterk/init/init_shooterk.c
-TARGET_UNIFIED_DEVICE := true
+# TARGET_INIT_VENDOR_LIB := libinit_msm
+# TARGET_LIBINIT_DEFINES_FILE := device/htc/shooterk/init/init_shooterk.c
+# TARGET_UNIFIED_DEVICE := true
 
 # cat /proc/emmc
 #dev:        size     erasesize name
-# mmcblk0p17: 00040000 00000200 "misc"
+# mmcblk0p35: 00040000 00000200 "misc"
 # mmcblk0p22: 00fffc00 00000200 "recovery"
 # mmcblk0p21: 01000000 00000200 "boot"
 # mmcblk0p23: 31fffc00 00000200 "system"
-# mmcblk0p32: 00140200 00000200 "local"
+# mmcblk0p33: 00140200 00000200 "local"
 # mmcblk0p25: 06ebde00 00000200 "cache"
 # mmcblk0p24: 4aabc400 00000200 "userdata"
-# mmcblk0p28: 01400000 00000200 "devlog"
-# mmcblk0p30: 00040000 00000200 "pdata"
+# mmcblk0p29: 01400000 00000200 "devlog"
+# mmcblk0p31: 00040000 00000200 "pdata"
+# mmcblk0p26: 00008000 00000200 "extra"
 # mmcblk0p18: 02800000 00000200 "radio"
+# mmcblk0p20: 01000000 00000200 "adsp"
 # mmcblk0p19: 007ffa00 00000200 "radio_config"
-# mmcblk0p26: 00400000 00000200 "modem_st1"
-# mmcblk0p27: 00400000 00000200 "modem_st2"
+# mmcblk0p27: 00400000 00000200 "modem_st1"
+# mmcblk0p28: 00400000 00000200 "modem_st2"
 # mmcblk0p8:  00c00200 00000200 "wimax"
-# mmcblk0p33: 007ffa00 00000200 "udata_wimax
-
-# C:\Users\voidz>adb shell cat /proc/emmc
-# dev:        size     erasesize name
-# mmcblk0p34: 000ffa00 00000200 "misc"
-# mmcblk0p22: 00fffc00 00000200 "recovery"
-# mmcblk0p21: 01000000 00000200 "boot"
-# mmcblk0p23: 31fffc00 00000200 "system"
-# mmcblk0p32: 00140200 00000200 "local"
-# mmcblk0p25: 06ebde00 00000200 "cache"
-# mmcblk0p24: 4aabc400 00000200 "userdata"
-# mmcblk0p28: 01400000 00000200 "devlog"
-# mmcblk0p30: 00040000 00000200 "pdata"
-# mmcblk0p18: 02800000 00000200 "radio"
-# mmcblk0p19: 007ffa00 00000200 "radio_config"
-# mmcblk0p26: 00400000 00000200 "modem_st1"
-# mmcblk0p27: 00400000 00000200 "modem_st2"
-# mmcblk0p8: 00c00200 00000200 "wimax"
-# mmcblk0p33: 007ffa00 00000200 "udata_wimax"
+# mmcblk0p34: 007ffa00 00000200 "udata_wimax"
 
 # Custom lun file path
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
+BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 435941376
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 1394606080
-BOARD_BOOTIMAGE_PARTITION_SIZE := 5242880
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776192
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
+BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 
 TARGET_RECOVERY_FSTAB := device/htc/shooterk/ramdisk/fstab.shooterk
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UI_LIB := librecovery_ui_shooterk
-TARGET_RECOVERY_INITRC := device/htc/shooterk/recovery/init.rc
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+
+DEVICE_RESOLUTION := 540x960
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_NO_USB_STORAGE := true
+
+TW_FLASH_FROM_STORAGE := true
+TW_NO_EXFAT := true
+TW_INCLUDE_DUMLOCK := true
+TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.591105/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 255
+TW_NO_SCREEN_TIMEOUT := true

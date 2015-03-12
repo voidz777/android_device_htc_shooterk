@@ -27,16 +27,45 @@ PRODUCT_COPY_FILES += \
     device/htc/shooterk/ramdisk/init.shooterk.rc:root/init.shooterk.rc \
     device/htc/shooterk/ramdisk/init.shooterk.usb.rc:root/init.shooterk.usb.rc \
     device/htc/shooterk/ramdisk/ueventd.shooterk.rc:root/ueventd.shooterk.rc \
-    device/htc/shooterk/ramdisk/fstab.shooterk:root/fstab.shooterk
-
+    device/htc/shooterk/ramdisk/fstab.shooterk:root/fstab.shooterk \
+    device/htc/shooterk/recovery/init.recovery.shooterk.rc:root/init.recovery.shooterk.rc
+	
 ## recovery and custom charging
-PRODUCT_COPY_FILES += \
-    device/htc/shooterk/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    device/htc/shooterk/recovery/sbin/power_test:recovery/root/sbin/power_test \
-    device/htc/shooterk/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    device/htc/shooterk/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
-    device/htc/shooterk/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
+PRODUCT_PACKAGES += \
+	choice_fn \
+	power_test \
+	offmode_charging \
+	detect_key \
+	htcbatt \
+	twrp.fstab
 
+## dsp Audio
+PRODUCT_COPY_FILES += \
+    device/htc/shooterk/dsp/AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
+    device/htc/shooterk/dsp/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
+    device/htc/shooterk/dsp/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
+    device/htc/shooterk/dsp/CodecDSPID.txt:system/etc/CodecDSPID.txt \
+    device/htc/shooterk/dsp/AudioBTID.csv:system/etc/AudioBTID.csv \
+    device/htc/shooterk/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
+    device/htc/shooterk/dsp/soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Original_MFG.txt:system/etc/soundimage/Sound_Original_MFG.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Phone_Original.txt:system/etc/soundimage/Sound_Phone_Original.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Rec_mono.txt:system/etc/soundimage/Sound_Rec_mono.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
+    device/htc/shooterk/dsp/soundimage/Sound_Rec_Voice_record.txt:system/etc/soundimage/Sound_Rec_Voice_record.txt \
+    device/htc/shooterk/dsp/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
+    device/htc/shooterk/dsp/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
+    device/htc/shooterk/dsp/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
+    device/htc/shooterk/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
 
 # keylayouts
 PRODUCT_COPY_FILES += \
@@ -79,6 +108,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
+# DeviceSettings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Kernel init.d script
 PRODUCT_COPY_FILES += \
     device/htc/shooterk/config/99kernel:system/etc/init.d/99kernel \
@@ -104,6 +137,17 @@ ADDITIONAL_DEFAULT_PROPERTIES+=  ro.adb.secure=0
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    otaupdater.otaid=liquidshooterk
 
+# Change the default locale to Japanese.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.locale.language=ja \
+    ro.product.locale.region=JP
+
+# Japanese font
+PRODUCT_COPY_FILES += \
+    device/htc/shooterk/config/fallback_fonts.xml:system/vendor/etc/fallback_fonts.xml \
+	frameworks/base/data/fonts/DroidSansJapanese.ttf:system/fonts/DroidSansJapanese.ttf
+	
+	
 # WiMAX support
 #PRODUCT_PACKAGES += \
 #    CMWimaxSettings

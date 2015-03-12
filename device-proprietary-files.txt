@@ -22,7 +22,7 @@ etc/wimax/dhcp/wimaxDhcp.conf
 etc/wimax/sequansd/DefaultTree.xml
 etc/wimax/sequansd/sequansd_app.xml
 framework/wimax-api.jar
-lib/hw/sensors.shooterk.so
+lib/hw/sensors.shooter.so
 lib/libcryp98.so
 lib/libdmtree.so
 lib/libfrsdk.so

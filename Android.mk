@@ -1,7 +1,3 @@
-ifneq ($(filter shooter,$(TARGET_DEVICE)),)
+ifneq ($(filter shooterk,$(TARGET_DEVICE)),)
     include $(all-subdir-makefiles)
 endif
-
-LOCAL_PATH := $(call my-dir)
-include $(call all-makefiles-under,$(LOCAL_PATH))
-

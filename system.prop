@@ -20,14 +20,14 @@ ro.telephony.ril_class=HTCQualcommRIL
 ro.telephony.ril.v3=signalstrength,skipdatareg,skipbrokendatacall
 ro.ril.enable.garbage.filter=0
 ro.telephony.default_network=4
-gsm.sim.operator.alpha = KDDI
-gsm.sim.operator.numeric = 44054
+gsm.sim.operator.alpha=KDDI
+gsm.sim.operator.numeric=44054
 gsm.sim.operator.iso-country=jp
-gsm.operator.alpha = KDDI
-gsm.operator.numeric = 44054
-gsm.operator.iso-country = jp
-ro.cdma.home.operator.numeric = 44054
-ro.cdma.home.operator.alpha = KDDI
+gsm.operator.alpha=KDDI
+gsm.operator.numeric=44054
+gsm.operator.iso-country=jp
+ro.cdma.home.operator.numeric=44054
+ro.cdma.home.operator.alpha=KDDI
 ro.product.locale.language=ja
 ro.product.locale.region=JP
 
@@ -40,9 +40,9 @@ persist.data_netmgrd_mtu=1472
 #
 
 #Modify MTU from 1500 to 1472 on 3G network
-ro.ril.set.mtu1472 = 1
+ro.ril.set.mtu1472=1
 
-net.tcp.buffersize.wimax = 4096,221184,524288,4096,16384,110208
+net.tcp.buffersize.wimax=4096,221184,524288,4096,16384,110208
 
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=160
@@ -64,10 +64,10 @@ ro.opengles.version=131072
 mobiledata.interfaces=rmnet0,wlan0,gprs,ppp0,wimax0
 
 # For emmc phone storage
-ro.phone_storage = 0
+ro.phone_storage=0
 
 # Make rmt_storage start at init
-ro.emmc = 1
+ro.emmc=1
 
 persist.sys.usb.config=mass_storage,adb
 
@@ -75,7 +75,7 @@ persist.sys.usb.config=mass_storage,adb
 ro.qualcomm.cabl=1
 
 # Engineer ID
-ro.engineerid = 3
+ro.engineerid=3
 
 # Sleep
 ro.ril.disable.power.collapse=0
